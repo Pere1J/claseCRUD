@@ -1,16 +1,21 @@
 let listaItems = [];
 let input = document.getElementById("input");
 let inputImagen = document.getElementById("inputImagen");
+let formularioEntrada = document.getElementById("formularioEntrada");
 let listdom = document.getElementById("listdom");
 let botonEditar = document.getElementById("ejecutar");
 let nextId = 0;
 let isEditMode = false;
 let editedItemId = null;
+let inputsHidden = true;
 
 render();
 
 // declraciones de funciones
+function showFormularioEntrada() {}
+
 function add() {
+  inputsHidden = false;
   if (isEditMode) {
     confirmar();
   } else {
@@ -28,10 +33,11 @@ function add() {
 function render() {
   let template = ``;
   for (const item of listaItems) {
-    template += `<li> <div><img class="imagen" style = "object-fit:cover; width:300px; height:300px" src='${item.picture}' alt = "${item.valor}"></img></div> ${item.valor} <button onclick="deleteItem(${item.id})"> Borrar </button> <button onclick="editItem(${item.id})"> Edit </button> </li>`;
+    template += `<li> <div><img class='imagen' src='${item.picture}' alt = "${item.valor}"></img></div> ${item.valor} <button onclick="deleteItem(${item.id})"> Borrar </button> <button onclick="editItem(${item.id})"> Edit </button> </li>`;
   }
 
   listdom.innerHTML = template;
+  //input.hidden = inputsHidden;
 }
 function deleteItem(id) {
   //debe de borrar el item con  id indicado//
@@ -57,6 +63,7 @@ function editItem(id) {
       botonEditar.innerText = "Modificar";
       editedItemId = id;
       isEditMode = true;
+      inputImagen.value = item.picture;
     }
   }
   render();
@@ -74,6 +81,8 @@ function confirmar() {
       botonEditar.innerText = "Añadir";
       editedItemId = null;
       input.value = "";
+      item.picture = inputImagen.value;
+      inputImagen.value = "";
     }
   }
 }
