@@ -1,6 +1,7 @@
 let listaItems = [];
 let input = document.getElementById("input");
 let inputImagen = document.getElementById("inputImagen");
+let inputSearch = document.getElementById("inputSearch");
 let formularioEntrada = document.getElementById("formularioEntrada");
 let listdom = document.getElementById("listdom");
 let botonEditar = document.getElementById("ejecutar");
@@ -11,11 +12,17 @@ let inputsHidden = true;
 
 render();
 
-// declraciones de funciones
-function showFormularioEntrada() {}
+////////////////////// DECLARACIONES DE FUNCIONES ////////////////////
 
+/* La siguiente función debería mostrar los inputs en la página al hacer onclick en el icono donde se 
+asigne */
+function showFormularioEntrada() {
+  formularioEntrada.style.display = "block";
+}
+render();
+
+//============================= fin showFormularioEntrada() ===============================================
 function add() {
-  inputsHidden = false;
   if (isEditMode) {
     confirmar();
   } else {
@@ -27,17 +34,19 @@ function add() {
     nextId += 1;
     input.value = "";
     inputImagen.value = "";
+    formularioEntrada.style.display = "none";
   }
+
   render();
 }
+
 function render() {
   let template = ``;
   for (const item of listaItems) {
-    template += `<li> <div><img class='imagen' src='${item.picture}' alt = "${item.valor}"></img></div> ${item.valor} <button onclick="deleteItem(${item.id})"> Borrar </button> <button onclick="editItem(${item.id})"> Edit </button> </li>`;
+    template += `<li> <div><img class='imagen' src='${item.picture}' alt = "${item.valor}"></img></div>${item.valor} <button class = 'botonBorrar' onclick="deleteItem(${item.id})"> Borrar </button> <button onclick="editItem(${item.id})"> Edit </button> </li>`;
   }
 
   listdom.innerHTML = template;
-  //input.hidden = inputsHidden;
 }
 function deleteItem(id) {
   //debe de borrar el item con  id indicado//
@@ -59,6 +68,7 @@ function editItem(id) {
     const item = listaItems[index];
     if (id == item.id) {
       //  editar,
+      showFormularioEntrada();
       input.value = item.valor;
       botonEditar.innerText = "Modificar";
       editedItemId = id;
@@ -83,6 +93,14 @@ function confirmar() {
       input.value = "";
       item.picture = inputImagen.value;
       inputImagen.value = "";
+      formularioEntrada.style.display = "none";
     }
   }
 }
+/* La siguiente función debería buscar en la listaItems el campo item.valor  y mostrar en la páginas solos los valores coincidentes */
+
+function search() {
+  listaItems = listaItems.filter(item.valor == inputSearch.value);
+}
+
+//============================= fin search() ===============================================

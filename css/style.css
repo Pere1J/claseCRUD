@@ -1,11 +1,21 @@
 
+.header {
+    background-image: url(https://media.timeout.com/images/105927367/image.jpg);
+}
+
+.tituloPagina{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    position: center;
+}
 
 #listdom {
     list-style: none;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     display: flex;
     justify-content:flex-start;
     flex-wrap: wrap;
     gap: 20px;
+    
     
 }
 
@@ -13,4 +23,49 @@
     object-fit:cover; 
     width:300px;
     height:300px;
+    border-radius: 20px;
+    
+    
+
 }
+
+#formularioEntrada {
+    display: none;
+}
+
+.iconAdd {
+    object-fit:cover; 
+    width:50px;
+    height:50px;
+}
+.iconAdd:hover {
+    cursor: pointer;
+}
+
+.buscar {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px;
+}
+.campoBuscar {
+    border-radius: 20px;
+    background-color: rgb(194, 231, 218);
+}
+.iconLupa {
+    width: 20px;
+    height: 20px;
+}
+
+button:hover {
+    cursor: pointer;
+}
+  
+.botonBorrar {
+border-radius: 25px;
+color: red;
+background-color: rgba(238, 144, 144, 0.575);
+font-weight: bold;
+
+}
+ 
