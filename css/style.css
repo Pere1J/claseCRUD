@@ -62,10 +62,11 @@ button:hover {
 }
   
 .botonBorrar {
-border-radius: 25px;
+border-radius: 50px;
 color: red;
 background-color: rgba(238, 144, 144, 0.575);
 font-weight: bold;
+border-color: red;
 
 }
  

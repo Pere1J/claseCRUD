@@ -43,7 +43,7 @@ function add() {
 function render() {
   let template = ``;
   for (const item of listaItems) {
-    template += `<li> <div><img class='imagen' src='${item.picture}' alt = "${item.valor}"></img></div>${item.valor} <button class = 'botonBorrar' onclick="deleteItem(${item.id})"> Borrar </button> <button onclick="editItem(${item.id})"> Edit </button> </li>`;
+    template += `<li> <div><img class='imagen' src='${item.picture}' alt = "${item.valor}"></img></div>${item.valor} <button class = 'botonBorrar' onclick="deleteItem(${item.id})"> X </button> <button onclick="editItem(${item.id})"> Edit </button> </li>`;
   }
 
   listdom.innerHTML = template;
@@ -97,10 +97,13 @@ function confirmar() {
     }
   }
 }
-/* La siguiente función debería buscar en la listaItems el campo item.valor  y mostrar en la páginas solos los valores coincidentes */
+/* La siguiente función debería buscar en la listaItems el campo item.valor y mostrar en la páginas solos los valores coincidentes */
 
 function search() {
-  listaItems = listaItems.filter(item.valor == inputSearch.value);
+  listaItems = listaItems.filter((item) =>
+    item.valor.includes(inputSearch.value)
+  );
+  render();
 }
 
 //============================= fin search() ===============================================

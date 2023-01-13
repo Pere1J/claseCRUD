@@ -1,32 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/style.css" />
-    <title>CRUD</title>
-    <script src="/scripts.js" defer></script>
-  </head>
-  <body>
-    <div class="header">
-    <img class="iconAdd" onclick="showFormularioEntrada()" src="./img/pngfind.com-web-button-png-2214644.png" alt="Añadir"></img>
-    <h1 class = "tituloPagina">Construye tu propia galería</h1>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <title>CRUD</title>
+  <script src="/scripts.js" defer></script>
+</head>
+
+<body>
+  <div class="header">
+    <img class="iconAdd" onclick="showFormularioEntrada()" src="./img/pngfind.com-web-button-png-2214644.png"
+      alt="Añadir"></img>
+    <h1 class="tituloPagina">Construye tu propia galería</h1>
     <div class="buscar">
-      <input class ="campoBuscar"  id="inputSearch" type="text" placeholder="Add search text..." />
-      <img class="iconLupa" oninput="search()" src="./img/lupa.png" alt="Buscar"></img>
+      <input oninput="search()" class="campoBuscar" id="inputSearch" type="text" placeholder="Add search text..." />
+      <img onclick="search()" class="iconLupa" src="./img/lupa.png" alt="Buscar"></img>
       <button id="busca" onclick="search()">Buscar</button>
     </div>
   </div>
-    
-    <div class="form" id="formularioEntrada">
-      <input id="input" type="text" placeholder="Add image name..." />
-      <input id="inputImagen" type="url" placeholder="Add image url..." />
 
-      <button id="ejecutar" onclick="add()">Añadir</button>
-    </div>
-    <ul id="listdom">
-       
-    </ul>
-  </body>
+  <div class="form" id="formularioEntrada">
+    <input id="input" type="text" placeholder="Add image name..." />
+    <input id="inputImagen" type="url" placeholder="Add image url..." />
+
+    <button id="ejecutar" onclick="add()">Añadir</button>
+  </div>
+  <ul id="listdom">
+     
+  </ul>
+</body>
+
 </html>
