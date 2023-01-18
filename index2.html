@@ -9,17 +9,18 @@
   <title>CRUD</title>
   <script src="/scripts.js" defer></script>
 </head>
-
 <body>
   <div class="header">
     <img class="iconAdd" onclick="showFormularioEntrada()" src="./img/pngfind.com-web-button-png-2214644.png"
       alt="Añadir"></img>
     <h1 class="tituloPagina">Construye tu propia galería</h1>
+    
     <div class="buscar">
       <input oninput="search()" class="campoBuscar" id="inputSearch" type="text" placeholder="Add search text..." />
       <img onclick="search()" class="iconLupa" src="./img/lupa.png" alt="Buscar"></img>
       <button id="busca" onclick="search()">Buscar</button>
     </div>
+
   </div>
 
   <div class="form" id="formularioEntrada">
@@ -27,6 +28,9 @@
     <input id="inputImagen" type="url" placeholder="Add image url..." />
 
     <button id="ejecutar" onclick="add()">Añadir</button>
+
+    <button id="cerrar" onclick="hideFormularioEntrada()">Ocultar</button>
+
   </div>
   <ul id="listdom">
      

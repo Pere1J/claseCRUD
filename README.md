@@ -8,14 +8,19 @@ La información introducida no debe perderse.
 Comentar la programación debidamente y utilizar estándares de código limpio.
 
 2.- ELEMENTOS
-Debe haber un botón que nos muestren 2 campos de entrada de datos: - Nombre - Url de la imagen
+Debe haber un botón que nos muestren 2 campos de entrada de datos:
+
+- Nombre
+- Url de la imagen
 
 Botón Borrar
 Botón Editar
 Campo Buscar
+Botón Ocultar (nuevo)
 
 3.- FUNCIONALIDADES
 Mostrar
+Ocultar (nuevo)
 Eliminar
 Editar
 Guardar
@@ -24,6 +29,6 @@ Recuperación de la información después de ejecutar una búsqueda
 Estilos
 
 3.- PENDIENTE
-Persistencia de datos
+Salvaguarda
 Recuperación de la información después de ejecutar una búsqueda
 Estilos

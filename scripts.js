@@ -5,11 +5,13 @@ let inputSearch = document.getElementById("inputSearch");
 let formularioEntrada = document.getElementById("formularioEntrada");
 let listdom = document.getElementById("listdom");
 let botonEditar = document.getElementById("ejecutar");
+let botonCerrar = document.getElementById("cerrar");
 let nextId = 0;
 let isEditMode = false;
 let editedItemId = null;
 let inputsHidden = true;
 
+persistencia();
 render();
 
 ////////////////////// DECLARACIONES DE FUNCIONES ////////////////////
@@ -17,11 +19,20 @@ render();
 /* La siguiente función debería mostrar los inputs en la página al hacer onclick en el icono donde se 
 asigne */
 function showFormularioEntrada() {
-  formularioEntrada.style.display = "block";
+  formularioEntrada.style.display = "flex";
 }
+
 render();
 
 //============================= fin showFormularioEntrada() ===============================================
+
+//============================ hideFormularioEntrada () =====================================================
+function hideFormularioEntrada() {
+  formularioEntrada.style.display = "none";
+}
+render();
+
+//===========================================================================================================
 function add() {
   if (isEditMode) {
     confirmar();
@@ -34,7 +45,6 @@ function add() {
     nextId += 1;
     input.value = "";
     inputImagen.value = "";
-    formularioEntrada.style.display = "none";
   }
 
   render();
@@ -47,6 +57,10 @@ function render() {
   }
 
   listdom.innerHTML = template;
+
+  //guarda datos de la galeria para ser recuperados por la funcion ''persistencia()''==============
+  localStorage.setItem("galeria", JSON.stringify(listaItems));
+  //===============================================================================================
 }
 function deleteItem(id) {
   //debe de borrar el item con  id indicado//
@@ -78,11 +92,11 @@ function editItem(id) {
   }
   render();
 }
-// que debe pasar al confirmar?
+
+// confirmar
 //editar el valor  que esta en lista
 // buscar el item y modificar su valor con el valor del input
-//como se busca?
-//modo
+
 function confirmar() {
   for (const item of listaItems) {
     if (editedItemId == item.id) {
@@ -93,10 +107,11 @@ function confirmar() {
       input.value = "";
       item.picture = inputImagen.value;
       inputImagen.value = "";
-      formularioEntrada.style.display = "none";
+      hideFormularioEntrada();
     }
   }
 }
+
 /* La siguiente función debería buscar en la listaItems el campo item.valor y mostrar en la páginas solos los valores coincidentes */
 
 function search() {
@@ -107,3 +122,10 @@ function search() {
 }
 
 //============================= fin search() ===============================================
+
+//==============================Crear Persistencia LocalStorage==========================================
+function persistencia() {
+  let save = localStorage.getItem("galeria");
+  listaItems = JSON.parse(save);
+}
+//============================== fin persistencia ==========================================
