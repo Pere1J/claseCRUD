@@ -1,5 +1,10 @@
+*:required {
+    background-color: rgb(248, 236, 168);
+}
+
 
 .header {
+    
     background-image: url(https://media.timeout.com/images/105927367/image.jpg);
 }
 
@@ -15,6 +20,8 @@
     justify-content:flex-start;
     flex-wrap: wrap;
     gap: 20px;
+    color: rgb(31, 30, 41);
+    font-size: 18px;
     
     
 }
@@ -23,10 +30,7 @@
     object-fit:cover; 
     width:300px;
     height:300px;
-    border-radius: 20px;
-    
-    
-
+    border-radius: 10px 10px 0px 0px; 
 }
 
 #formularioEntrada {
@@ -38,9 +42,11 @@
     object-fit:cover; 
     width:50px;
     height:50px;
+   
 }
 .iconAdd:hover {
     cursor: pointer;
+    opacity: 0.7;
 }
 
 .buscar {
@@ -57,6 +63,10 @@
     width: 20px;
     height: 20px;
 }
+.iconLupa:hover{
+    cursor: pointer;
+    opacity: 0.5;
+}
 
 button:hover {
     cursor: pointer;
@@ -70,4 +80,28 @@ font-weight: bold;
 border-color: red;
 
 }
- 
+
+.etiquetas {
+    display: grid;
+    grid-template-columns: [first] 240px [line2] 60px [line3];
+    background-color: rgb(191, 192, 241);
+    border-radius: 0px 0px 10px 10px;
+    
+};
+
+
+
+
+.material-icons {
+    font-size: 24px;
+    color: rgb(31, 30, 41);
+}
+
+.material-icons:hover {
+    cursor: pointer;
+    color: red;
+}
+
+
+
+  

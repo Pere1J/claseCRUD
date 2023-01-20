@@ -20,15 +20,19 @@ Botón Ocultar (nuevo)
 
 3.- FUNCIONALIDADES
 Mostrar
-Ocultar (nuevo)
 Eliminar
 Editar
 Guardar
-Persistencia de datos
 Recuperación de la información después de ejecutar una búsqueda
 Estilos
+Persistencia de datos (nuevo)
+limitar campo texto (nuevo)
+Insertar iconos (delete y trash) (nuevo)
+Ocultar (nuevo)
 
 3.- PENDIENTE
 Salvaguarda
+Persistencia datos después de search
 Recuperación de la información después de ejecutar una búsqueda
-Estilos
+Estilos:
+-pulir estilo a las cards

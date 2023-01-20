@@ -31,8 +31,24 @@ function hideFormularioEntrada() {
   formularioEntrada.style.display = "none";
 }
 render();
-
 //===========================================================================================================
+
+// FUNCIONES DE SALVAGUARDA =================================================================================
+//regex
+/* function isValidUrl(urlString) {
+  let urlPattern = new RegExp(
+    "^(https?:\\/\\/)?" + // validate protocol
+      "((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|" + // validate domain name
+      "((\\d{1,3}\\.){3}\\d{1,3}))" + // validate OR ip (v4) address
+      "(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*" + // validate port and path
+      "(\\?[;&a-z\\d%_.~+=-]*)?" + // validate query string
+      "(\\#[-a-z\\d_]*)?$",
+    "i"
+  ); // validate fragment locator
+  return !!urlPattern.test(urlString);
+} */
+
+//========================================Fin Salvaguardas ===================================================
 function add() {
   if (isEditMode) {
     confirmar();
@@ -53,7 +69,9 @@ function add() {
 function render() {
   let template = ``;
   for (const item of listaItems) {
-    template += `<li> <div><img class='imagen' src='${item.picture}' alt = "${item.valor}"></img></div>${item.valor} <button class = 'botonBorrar' onclick="deleteItem(${item.id})"> X </button> <button onclick="editItem(${item.id})"> Edit </button> </li>`;
+    template += `<li> <div><img class='imagen' src='${item.picture}' alt = "${item.valor}"></img></div><div class ='etiquetas'><span class= 'title'>${item.valor}</span>
+    <span class='icons' ><i  onclick="deleteItem(${item.id})" class="material-icons">delete</i> <i onclick="editItem(${item.id})" class="material-icons">
+    edit</i></span></div></li>`;
   }
 
   listdom.innerHTML = template;
@@ -118,12 +136,13 @@ function search() {
   listaItems = listaItems.filter((item) =>
     item.valor.includes(inputSearch.value)
   );
+
   render();
 }
 
 //============================= fin search() ===============================================
 
-//==============================Crear Persistencia LocalStorage==========================================
+//==============================Crear Persistencia LocalStorage=============================
 function persistencia() {
   let save = localStorage.getItem("galeria");
   listaItems = JSON.parse(save);
